@@ -134,7 +134,6 @@ public class Hand implements Serializable {
 				ScoredHands.add(h);
 			} catch (HandException e) {
 				System.out.println("Exception thrown");
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}

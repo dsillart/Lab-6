@@ -378,25 +378,23 @@ public class PokerTableController implements Initializable {
 									strImagePath, pntCurrentCard, pntCardDeck, iCardNbr);
 							ST.play();
 							iCurrentCard[p.getiPlayerPosition()]++;
-						});
-
-						// }
-						/*
-						 * else {
-						 * this.getCardHBox(p.getiPlayerPosition()).getChildren(
-						 * ).add(BuildImageView(0));
-						 * 
-						 * ivDealtCard = (ImageView)
-						 * this.getCardHBox(p.getiPlayerPosition()).getChildren(
-						 * ) .get(this.getCardHBox(p.getiPlayerPosition()).
-						 * getChildren().size() - 1);
-						 * 
-						 * 
-						 * }
-						 */
+						}); 
 					}
 				}
-			} else if (cd.getCardDestination() == eCardDestination.Community) {
+			}
+					
+						 else {
+							 for (int iPlayerPos = 1; iPlayerPos < 5; iPlayerPos++) {
+								 Player p = HubPokerGame.getPlayerByPosition(iPlayerPos);
+								 this.getCardHBox(p.getiPlayerPosition()).getChildren().add(BuildImageView(0));
+								 ivDealtCard = (ImageView)
+										 this.getCardHBox(p.getiPlayerPosition()).getChildren() .get(this.getCardHBox(p.getiPlayerPosition()).getChildren().size() - 1);
+							 }
+						 }
+					}
+		
+				
+			 else if (cd.getCardDestination() == eCardDestination.Community) {
 				Player p = HubPokerGame.getPlayerCommon();
 				Hand h = HubPokerGame.getGameCommonHand();
 				ArrayList<Card> cardsDrawn = h.GetCardsDrawn(eDrawCnt, HubPokerGame.getRule().GetGame(),
@@ -407,8 +405,6 @@ public class PokerTableController implements Initializable {
 							.get(this.getCardHBox(0).getChildren().size() - 1);
 				}
 			}
-
-		}
 
 		if (HubPokerGame.geteGameState() == eGameState.FINISHED) {
 			Action act = new Action(eAction.ScoreGame, mainApp.getPlayer());

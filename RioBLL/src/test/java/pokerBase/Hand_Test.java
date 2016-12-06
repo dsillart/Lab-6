@@ -70,7 +70,6 @@ public class Hand_Test {
 			
 			System.out.println(eHandStrength.geteHandStrength(hBestHand.getHandScore().getHandStrength()));
 		} catch (HandException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

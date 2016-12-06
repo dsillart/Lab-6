@@ -30,14 +30,12 @@ public class GamePlay_Test {
 			
 			gme.seteDrawCountLast(eDrawCount.FOURTH);
 		} catch (DeckException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
 		Hand h = gme.getPlayerHand(pDealer);
 		try {
 			h = Hand.EvaluateHand(h);
 		} catch (HandException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		gme.isGameOver();
